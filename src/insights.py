@@ -189,6 +189,15 @@ def matches_salary_range(job, salary):
         return False
 
 
+def check_job_range(job, salary):
+    try:
+        if matches_salary_range(job, salary):
+            return job
+
+    except ValueError:
+        return None
+
+
 def filter_by_salary_range(jobs, salary):
     """Filters a list of jobs by salary range
 
@@ -204,4 +213,8 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    return [
+        check_job_range(job, salary)
+        for job in jobs
+        if check_job_range(job, salary) is not None
+    ]
