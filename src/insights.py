@@ -85,7 +85,13 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    if industry == '':
+        return []
+    filter_industry = []
+    for job in jobs:
+            if industry in job['industry']:
+                    filter_industry.append(job)
+    return filter_industry
 
 
 def get_max_salary(path):
