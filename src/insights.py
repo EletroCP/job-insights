@@ -111,10 +111,11 @@ def get_max_salary(path):
         The maximum salary paid out of all job opportunities
     """
     file_content = jobs.read(path)
-    data = []
-    for info in file_content:
-        if info['max_salary'] != '':
-            data.append(info['max_salary'])
+    data = [
+        int(info["max_salary"])
+        for info in file_content
+        if info["max_salary"].isnumeric()
+    ]
     return max(data)
 
 
@@ -134,10 +135,11 @@ def get_min_salary(path):
         The minimum salary paid out of all job opportunities
     """
     file_content = jobs.read(path)
-    data = []
-    for info in file_content:
-        if info['max_salary'] != '':
-            data.append(info['max_salary'])
+    data = [
+        int(info["min_salary"])
+        for info in file_content
+        if info["min_salary"].isnumeric()
+    ]
     return min(data)
 
 
