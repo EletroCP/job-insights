@@ -44,7 +44,7 @@ def filter_by_job_type(jobs, job_type):
     filter_job = []
     for job in jobs:
         if job_type in job['job_type']:
-                filter_job.append(job)
+            filter_job.append(job)
     return filter_job
 
 
@@ -91,7 +91,7 @@ def filter_by_industry(jobs, industry):
     filter_industry = []
     for job in jobs:
         if industry in job['industry']:
-                filter_industry.append(job)
+            filter_industry.append(job)
     return filter_industry
 
 
