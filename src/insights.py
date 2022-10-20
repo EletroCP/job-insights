@@ -1,5 +1,6 @@
 from src import jobs
 
+
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
 
@@ -18,7 +19,7 @@ def get_unique_job_types(path):
     file_content = jobs.read(path)
     data = []
     for row in file_content:
-        if row['job_types'] not in data:
+        if row['job_type'] not in data:
             data.append(row['job_type'])
     return data
 
@@ -42,8 +43,8 @@ def filter_by_job_type(jobs, job_type):
         return []
     filter_job = []
     for job in jobs:
-            if job_type in job['job_type']:
-                    filter_job.append(job)
+        if job_type in job['job_type']:
+                filter_job.append(job)
     return filter_job
 
 
@@ -89,8 +90,8 @@ def filter_by_industry(jobs, industry):
         return []
     filter_industry = []
     for job in jobs:
-            if industry in job['industry']:
-                    filter_industry.append(job)
+        if industry in job['industry']:
+                filter_industry.append(job)
     return filter_industry
 
 
@@ -109,7 +110,12 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    file_content = jobs.read(path)
+    data = []
+    for info in file_content:
+        if info['max_salary'] != '':
+            data.append(info['max_salary'])
+    return max(data)
 
 
 def get_min_salary(path):
@@ -127,7 +133,12 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    file_content = jobs.read(path)
+    data = []
+    for info in file_content:
+        if info['max_salary'] != '':
+            data.append(info['max_salary'])
+    return min(data)
 
 
 def matches_salary_range(job, salary):
