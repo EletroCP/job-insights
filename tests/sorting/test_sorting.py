@@ -6,11 +6,11 @@ from src.sorting import sort_by
 def mock_jobs():
     return [
         {"title": "Job1", "min_salary": 15, "max_salary": 85,
-          "date_posted": '2022-05-28'},
+        "date_posted": '2022-05-28'},
         {"title": "Job2", "min_salary": 20, "max_salary": 60,
-          "date_posted": '2022-06-28'},
+        "date_posted": '2022-06-28'},
         {"title": "Job3", "min_salary": 3, "max_salary": 50,
-          "date_posted": '2022-07-28'},
+        "date_posted": '2022-07-28'},
     ]
 
 
